@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Stict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>欢迎登陆中化现代农业APP管理系统</title>
+    <script type="text/javascript" th:src="@{/js/jquery-1.11.0.min.js}"></script>
+    <!--    <script type="text/javascript" src="http://localhost:10005/js/jquery-1.11.0.min.js"></script>-->
+
+    <style type="text/css">
+        div {
+            width: 400px;
+            height: 400px;
+            padding-top: 1px;
+            margin-top: 200px;
+            margin-bottom: 200px;
+            background: #000000;
+            opacity: 0.7;
+        }
+
+
+        h2 {
+            font-family: "微软雅黑";
+            font-size: 30px;
+            color: white;
+        }
+
+        li {
+            font-family: "微软雅黑";
+            font-size: 20px;
+            color: white;
+            list-style: none;
+            margin-top: 20px;
+            display: flex;
+        }
+
+        label {
+            width: 120px;
+        }
+
+        input {
+            font-family: "微软雅黑";
+            font-size: 20px;
+            color: black;
+        }
+
+        #login {
+            color: black;
+            font-size: 25px;
+            margin-top: 20px;
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+<center>
+    <div>
+
+        <h2 style="margin-top: 40px">
+            中化APP管理登录页面
+        </h2>
+
+        <ul>
+            <li>
+                <span style="width: 120px;text-align: right">用户名：</span> <input type="text" value="cuichuang"
+                                                                                     id="username">
+            </li>
+            <li>
+                <span style="width: 120px;text-align: right">密码：</span>
+                <input type="password" value="123456" id="password">
+            </li>
+        </ul>
+        <p>
+            <button id="login" onclick="login()">立即登陆</button>
+        </p>
+
+    </div>
+</center>
+<video autoplay loop muted>
+    <source src="/images/movie.mp4" type="video/mp4"/>
+    Your browser does not support the video tag.
+
+</video>
+</body>
+<script>
+    function login() {
+        var url = "/user/login/" + $("#username").val() + "/" + $("#password").val();
+        $.post(url, function (result) {
+            if (result.success) {
+                window.location.href = "/index"
+                localStorage.setItem("user", result.success)
+                localStorage.setItem("roleType", result.roleType)
+            } else
+                alert("账号密码错误")
+        });
+    }
+
+</script>
+
+
+<style>
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    video {
+        position: fixed;
+        right: 0px;
+        bottom: 0px;
+        min-width: 100%;
+        min-height: 100%;
+        height: auto;
+        width: auto;
+        /*加滤镜*/
+        /*filter: blur(15px); //背景模糊设置 */
+        /*-webkit-filter: grayscale(100%);*/
+        /*filter:grayscale(100%); //背景灰度设置*/
+        z-index: -11
+    }
+
+    source {
+        min-width: 100%;
+        min-height: 100%;
+        height: auto;
+        width: auto;
+    }
+
+    p {
+        width: 100%;
+        text-align: center;
+        font-size: 40px;
+        color: white;
+    }
+</style>
+</html>
