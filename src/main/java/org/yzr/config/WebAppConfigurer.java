@@ -25,10 +25,10 @@ public class WebAppConfigurer extends WebMvcConfigurationSupport {
             }
             //System.out.println(prefix); //这行别删 file:/Users/chuangcui/IdeaProjects/intranet_app_manager/
             //安装包及icon存放在项目里的绝对路径 file:/Users/chuangcui/IdeaProjects/intranet_app_manager/build/classes/java/main/static/upload/android/com.xzyd.app/1670496177004/android.apk
-//            registry.addResourceHandler("/android/**").addResourceLocations(prefix+ "static/upload/android/");//原始写法
-//            registry.addResourceHandler("/ios/**").addResourceLocations(prefix + "static/upload/ios/");//原始写法
-            registry.addResourceHandler("/android/**").addResourceLocations(prefix+ "build/classes/java/main/static/upload/android/");//崔 修改为本地路径
-            registry.addResourceHandler("/ios/**").addResourceLocations(prefix + "build/classes/java/main/static/upload/ios/");//崔 修改为本地路径
+            registry.addResourceHandler("/android/**").addResourceLocations(prefix+ "static/upload/android/");//原始写法
+            registry.addResourceHandler("/ios/**").addResourceLocations(prefix + "static/upload/ios/");//原始写法
+//            registry.addResourceHandler("/android/**").addResourceLocations(prefix+ "build/classes/java/main/static/upload/android/");//崔 修改为本地路径
+//            registry.addResourceHandler("/ios/**").addResourceLocations(prefix + "build/classes/java/main/static/upload/ios/");//崔 修改为本地路径
             registry.addResourceHandler("/crt/**").addResourceLocations(prefix + "static/crt/");
             registry.addResourceHandler("/css/**").addResourceLocations("classpath:/static/css/");
             registry.addResourceHandler("/js/**").addResourceLocations("classpath:/static/js/");
